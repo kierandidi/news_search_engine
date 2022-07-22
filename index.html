@@ -8,11 +8,171 @@
     <title>News Search Engine</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="./styles.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <div class="container col-6">
+
+ <!-- Responsive navbar-->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#!">NewsSearch N-GIN</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page header with logo and tagline-->
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder display-2">Get up to date!</h1>
+            <p class="lead mb-0 md-font">Browse your favorite topics</p>
+        </div>
+    </div>
+</header>
+<!-- Page content-->
+<div class="container">
+    <div class="row">
+        <!-- Blog entries-->
+        <div class="col-lg-8">
+            <!-- Featured blog post-->
+            <div class="card mb-4">
+                <a href="https://www.nature.com/articles/d41586-022-00585-7">
+                    <img class="card-img-top" src="./src/images/global-warming-nature.jpg" alt="Woman walking on a poluted beach." />
+                </a>
+                <div class="card-body">
+                    <div class="small text-muted">2022-02-28</div>
+                    <h2 class="card-title">Global Warming</h2>
+                    <p class="card-text">Climate change is hitting the planet faster than scientists originally thought</p>
+                    <p class="card-text"><span class="text-muted sm-font">Latest IPCC climate report warns that rising greenhouse-gas emissions could soon outstrip the ability of many communities to adapt.</span></p>
+                    <a class="btn btn-primary" href="https://www.nature.com/articles/d41586-022-00585-7">Read more →</a>
+                </div>
+            </div>
+            <!-- Nested row for non-featured blog posts-->
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="https://www.cnbc.com/2022/07/08/why-bitcoin-doesnt-seem-to-be-a-hedge-against-inflation.html">
+                            <img class="card-img-top" src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80" alt="A golden coin with the bitcoin logo on it." />
+                        </a>
+                        <div class="card-body">
+                            <div class="small text-muted">2022-07-08</div>
+                            <h2 class="card-title h4">Bitcoin</h2>
+                            <p class="card-text"><span class="text-muted sm-font">Bitcoin was supposed to hedge against inflation—here&#39s why it hasn&#39t worked that way.</span></p>
+                            <a class="btn btn-primary" href="https://www.cnbc.com/2022/07/08/why-bitcoin-doesnt-seem-to-be-a-hedge-against-inflation.html">Read more →</a>
+                        </div>
+                    </div>
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="https://www.business-standard.com/article/international/world-shares-slide-ahead-of-us-inflation-data-earnings-hurdles-122071100380_1.html">
+                            <img class="card-img-top" src="https://images.unsplash.com/photo-1635840420799-f75477b0b977?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="A vacuum cleaner swallowing dollar bills." />
+                        </a>
+                        <div class="card-body">
+                            <div class="small text-muted">2022-07-11</div>
+                            <h2 class="card-title h4">Infation</h2>
+                            <p class="card-text"><span class="text-muted sm-font">World shares slide ahead of US' inflation data, earnings hurdles.</span></p>
+                            <a class="btn btn-primary" href="https://www.business-standard.com/article/international/world-shares-slide-ahead-of-us-inflation-data-earnings-hurdles-122071100380_1.html">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="https://abcnews.go.com/Politics/supreme-court-overturns-roe-wade-landmark-case-abortion/story?id=85160781">
+                            <img class="card-img-top" src="https://images.unsplash.com/photo-1656165287025-6ee9823d5216?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="A woman holding a sign that says: 3 out of 4 Americans support abortion being legal." />
+                        </a>
+                        <div class="card-body">
+                            <div class="small text-muted">2022-06-24</div>
+                            <h2 class="card-title h4">U.S. Supreme Court and abortion</h2>
+                            <p class="card-text"><span class="text-muted sm-font">Supreme Court overturns Roe v. Wade in landmark case on abortion rights.</span></p>
+                            <a class="btn btn-primary" href="https://abcnews.go.com/Politics/supreme-court-overturns-roe-wade-landmark-case-abortion/story?id=85160781">Read more →</a>
+                        </div>
+                    </div>
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="https://www.bbc.com/news/science-environment-58954530">
+                            <img class="card-img-top" src="https://images.unsplash.com/photo-1580868636775-b8a1818ca086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="A melting iceberg." />
+                        </a>
+                        <div class="card-body">
+                            <div class="small text-muted">2021-10-25</div>
+                            <h2 class="card-title h4">Global Warming</h2>
+                            <p class="card-text"><span class="text-muted sm-font">Climate change: How do we know it is happening and caused by humans?</span></p>
+                            <a class="btn btn-primary" href="https://www.bbc.com/news/science-environment-58954530">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination-->
+            <nav aria-label="Pagination">
+                <hr class="my-0" />
+                <ul class="pagination justify-content-center my-4">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                    <li class="page-item"><a class="page-link" href="#!">15</a></li>
+                    <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Categories widget-->
+            <div class="card mb-4">
+                <div class="card-header">Categories</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Web Design</a></li>
+                                <li><a href="#!">HTML</a></li>
+                                <li><a href="#!">Freebies</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">JavaScript</a></li>
+                                <li><a href="#!">CSS</a></li>
+                                <li><a href="#!">Tutorials</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">Side Widget</div>
+                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+</footer>
+
+    <!-- <div class="container col-6">
         <div class="card mb-3">
             <img src="./src/images/global-warming-nature.jpg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -23,7 +183,7 @@
                         emissions could soon outstrip the ability of many communities to adapt.</small></p>
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
