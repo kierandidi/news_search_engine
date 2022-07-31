@@ -9,5 +9,16 @@
 <body>
     <h1><%= article.headline %> </h1>
     <h2><%= article.topic %> </h2>
+    <p>
+        <a href="/articles/<%= article._id %>/edit">Edit</a>
+    </p>
+    <p>
+        <form action="/articles/<%= article._id %>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form> 
+    </p>
+    <footer>
+        <a href="/articles">All Articles</a>
+    </footer>
 </body>
 </html>

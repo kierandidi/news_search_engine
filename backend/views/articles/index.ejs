@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>All articles</h1>
+    <div>
+        <a href="/articles/new">Add Article</a>
+    </div>
     <ul>
         <% for (let article of articles) {%> 
             <li><a href="/articles/<%= article._id %>"><%= article.headline %> </a></li>
