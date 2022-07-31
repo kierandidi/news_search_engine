@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const ArticleSchema = new Schema({
     headline: String,
-    topic: String,
-    publisher: String,
-    country: String,
-    release_date: Date,
+    topic: String,  //dropdown?
+    publisher: String, //dropdonw?
+    country: String, //dropdown menu?
+    release_date: String, //change to date later on?
     weblink: String  
 });
 
