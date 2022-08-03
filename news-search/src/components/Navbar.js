@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -11,21 +12,21 @@ function NavbarExpand() {
   return (
     <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">NewsSearch N-GIN</Navbar.Brand>
+        <Navbar.Brand as={Link} to='/'>NewsSearch N-GIN</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#Home">Home</Nav.Link>
-            <Nav.Link href="#About">About</Nav.Link>
+            <Nav.Link as={Link} to='/'>Home</Nav.Link>
+            <Nav.Link as={Link} to='/'>About</Nav.Link>
             <NavDropdown title="Topics" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+              <NavDropdown.Item as={Link} to='/global-warming'>Global Warming</NavDropdown.Item>
+              
+              <NavDropdown.Item as={Link} to='/bitcoin'>
+                Bitcoin
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
+              <NavDropdown.Item as={Link} to='/abortion'>Abortion</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/inflation'>
+                Inflation
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
