@@ -12,7 +12,7 @@ import Logo2 from './img/athenas-delta-logo/athenas-logo-only.png';
 function NavbarExpand() {
   const [over, setOver] = useState(false);
   return (
-    <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark" className=' shadow'>
       <Container>
         <Navbar.Brand onMouseOver={() => setOver(true)} onMouseOut={() => setOver(false)}>
           <Link to='/'>
