@@ -10,16 +10,36 @@ apiRouter.get("/", (req,res,next)=>{
 })
 
 
-apiRouter.get("/json",(req, res, next)=>{
+apiRouter.get("/topics",(req, res, next)=>{
     var object={
-        message:"This is a json!"
+        message:"topics"
     };
     res.json(object);
 
 })
 
-apiRouter.get('/home',(req,res,next) =>{
-    res.render('home', null);
+apiRouter.get("/topics/:topicID",(req, res, next)=>{
+    var object={
+        message: req.params.topicID
+    };
+    res.json(object);
+
+})
+
+apiRouter.get("/topics/:topicID/articles",(req, res, next)=>{
+    var object={
+        message: `articles of ${req.params.topicID}`
+    };
+    res.json(object);
+
+})
+
+apiRouter.get("/topics/:topicID/articles/:articleID",(req, res, next)=>{
+    var object={
+        message: ` ${req.params.articleID} of ${req.params.topicID}`
+    };
+    res.json(object);
+
 })
 
 
