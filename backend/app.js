@@ -18,8 +18,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //tell express to parse bodies as URL encoded of post requests for adding new articles
-app.use(express.urlencoded({extended: true}))
-app.use(methodOverride('_method'))
+app.use(express.urlencoded({extended: true}));
+//tell express to parse request bodies with JSON payloads
+app.use(express.json());
+app.use(methodOverride('_method'));
 
 
 app.get('/articles', async (req, res) => {
@@ -73,7 +75,7 @@ const apiRouter = require(path.resolve(__dirname, "./routes/api.js"));
 //uses API routing when '/api/' is getting used
 app.use("/api/", apiRouter);
 
-//defaults to homepage when no other get request is used (make sure this is the last get request)
+//defaults to homepage when no other (get) request is used (make sure this is the last get request)
 app.get('*', (req, res) => {
     res.render('home');
 });
