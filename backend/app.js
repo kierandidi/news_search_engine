@@ -24,54 +24,14 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 
-app.get('/articles', async (req, res) => {
-    const articles = await Article.find({});
-    res.render('articles/index', {articles});
-});
-
-app.get('/articles/new', (req, res) => {
-    res.render('articles/new');
-});
-
-app.post('/articles', async (req, res) => {
-    const article = new Article(req.body.article);
-    await article.save();
-    res.redirect(`/articles/${article._id}`);
-})
-
-app.get('/articles/:id', async (req, res) => {
-    const article = await Article.findById(req.params.id);
-    res.render('articles/show', { article });
-});
-
-app.get('/articles/:id/edit', async (req, res) => {
-    const article = await Article.findById(req.params.id);
-    res.render('articles/edit', { article });
-})
-
-app.put('/articles/:id', async (req, res) => {
-    const { id } = req.params;
-    const article = await Article.findByIdAndUpdate(id, {...req.body.article});
-    res.redirect(`articles/${article._id}`);
-});
-
-app.delete('/articles/:id', async (req, res) => {
-    const { id } = req.params;
-    await Article.findByIdAndDelete(id);
-    res.redirect('/articles');
-});
-
-//only test route to see if we can connect express to mongodb
-// app.get('/makearticle', async (req, res) => {
-//     const article = new Article({headline: "Temperatures rising", topic: 'Climate Change'})
-//     await article.save();
-//     res.send(article)
-// });
+//sets up route for CRUD
+const CRUDRouter = require(path.resolve(__dirname, "./routes/crud.js"));
+//uses CRUD routing when '/article/' is getting used
+app.use("/articles/", CRUDRouter);
 
 
 //sets up route for API
 const apiRouter = require(path.resolve(__dirname, "./routes/api.js"));
-
 //uses API routing when '/api/' is getting used
 app.use("/api/", apiRouter);
 
