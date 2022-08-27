@@ -1,6 +1,6 @@
-// vvv
-// IMPORTS
-// vvv
+//
+//  IMPORTS
+//
 
 const express = require('express');
 const path = require('path');
@@ -8,9 +8,10 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const Article = require('./models/article');
 
-// vvv
-// DATABASE
-// vvv
+
+//  
+//  DATABASE
+//  
 
 mongoose.connect('mongodb://localhost:27017/article-database');
 
@@ -21,9 +22,9 @@ db.once("open", () => {
 });
 
 
-// vvv
-// EXPRESS SETTINGS
-// vvv
+//
+//  EXPRESS SETTINGS
+//
 
 const app = express();
 
@@ -38,9 +39,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
-// vvv
-// ROUTES
-// vvv
+
+//
+//  ROUTES
+//
 
 //sets up route for CRUD
     //CRUD will most likely be implemented *through* API
@@ -59,9 +61,10 @@ app.get('*', (req, res) => {
     res.render('home');
 });
 
-// vvv
-// FINAL
-// vvv
+
+//
+//  FINAL
+//
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')

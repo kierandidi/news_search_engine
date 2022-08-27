@@ -1,7 +1,16 @@
+//
+//  IMPORTS
+//
+
 const express = require('express');
 const apiRouter = express.Router();
 
-//routes for API
+
+//
+//  ROUTES FOR THE API
+//
+
+//GET requests
 
 apiRouter.get("/", (req,res,next)=>{
 
@@ -43,5 +52,8 @@ apiRouter.get("/topics/:topicID/articles/:articleID",(req, res, next)=>{
 })
 
 
+//
+//  FINAL
+//
 
 module.exports=apiRouter;
