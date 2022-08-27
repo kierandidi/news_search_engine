@@ -21,9 +21,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
-app.get('/', (req, res) => {
-    res.render('home');
-});
 
 app.get('/articles', async (req, res) => {
     const articles = await Article.find({});
@@ -68,6 +65,18 @@ app.delete('/articles/:id', async (req, res) => {
 //     await article.save();
 //     res.send(article)
 // });
+
+
+//sets up route for API
+const apiRouter = require(path.resolve(__dirname, "./routes/api.js"));
+
+//uses API routing when '/api/' is getting used
+app.use("/api/", apiRouter);
+
+//defaults to homepage when no other get request is used (make sure this is the last get request)
+app.get('*', (req, res) => {
+    res.render('home');
+});
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')
