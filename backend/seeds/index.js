@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Article = require('../models/article');
+const Topic = require('../models/topic');
 const seed_articles = require('./seed_articles')
+const seed_topics = require('./seed_topics')
 
 mongoose.connect('mongodb://localhost:27017/article-database');
 
@@ -25,7 +27,20 @@ const seedDB = async () => {
         })
     //logs number of articles added
     console.log(i+1)
+    //insert logic to automatically put into topic array
     await a.save();
+    }
+    await Topic.deleteMany({});
+    for (let i = 0; i < seed_topics.length; i++) {
+        const t = new Topic({
+            name: `${seed_topics[i].name}`,
+            description: `${seed_topics[i].description}`,
+            numOfArticles:`${seed_topics[i].numOfArticles}`, 
+            //articles: `${seed_topics[i].articles}`, gives Cast Error. seeding will only be temporary anyway
+        })
+    //logs number of topics added
+    console.log(i+1)
+    await t.save();
     }
 }
 

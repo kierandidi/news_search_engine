@@ -1,7 +1,7 @@
 module.exports = [
     {
         headline: 'Supreme Court overturns Roe v. Wade, ending 50 years of federal abortion rights',
-        topic: 'Supreme Court and Abortion',
+        topic: 'Abortion',
         publisher: 'CNBC',
         country: 'US',
         release_date: '2022-06-24',
@@ -9,7 +9,7 @@ module.exports = [
     },
     {
         headline: 'Supreme Court overturns Roe v. Wade in landmark case on abortion rights',
-        topic: 'Supreme Court and Abortion',
+        topic: 'Abortion',
         publisher: 'ABC',
         country: 'Australia',
         release_date: '2022-06-24',
@@ -17,7 +17,7 @@ module.exports = [
     },
     {
         headline: 'US Supreme Court overturns landmark Roe v Wade abortion ruling',
-        topic: 'Supreme Court and Abortion',
+        topic: 'Abortion',
         publisher: 'AlJazeera',
         country: 'Katar',
         release_date: '2022-06-24',
@@ -25,10 +25,10 @@ module.exports = [
     },
     {
         headline: 'Inflation Expectations Three Years Out Ease to 3.6%, NY Fed Survey Shows',
-        topic: 'US inflation 2022',
+        topic: 'Economy',
         publisher: 'Bloomberg',
         country: 'US',
         release_date: '2022-07-11',
         weblink: 'https://www.bloomberg.com/news/articles/2022-07-11/ny-fed-survey-shows-three-year-inflation-outlook-easing-to-3-6'  
-    },
+    }
 ]
