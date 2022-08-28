@@ -18,7 +18,7 @@ const ArticleSchema = new Schema({
     topic: String,  //dropdown?
     publisher: String, //dropdonw?
     country: String, //dropdown menu?
-    release_date: String, //change to date later on? // Yes - Vincent
+    release_date: Date, //change to date later on? // Yes - Vincent
     weblink: String  
 });
 
