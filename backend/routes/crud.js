@@ -1,7 +1,18 @@
+//
+//
+//  IMPORT MODULES
+//
+
 const express = require('express');
+
+//setting up router object
 const CRUDRouter = express.Router();
 
-//routes for CRUD
+//
+//
+//  CRUD ROUTES
+//
+
 
 CRUDRouter.get('/', async (req, res) => {
     const articles = await Article.find({});
@@ -47,5 +58,11 @@ CRUDRouter.delete('/:id', async (req, res) => {
 //     res.send(article)
 // });
 
+//
+//
+//  FINAL
+//
+
+//export module to be imported in backend/app.js
 
 module.exports=CRUDRouter;

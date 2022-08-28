@@ -1,6 +1,6 @@
 //
 //
-//  IMPORTS
+//  IMPORT MODULES
 //
 
 const express = require('express');
@@ -31,7 +31,7 @@ const app = express();
 
 //setting HTML templating engine to EJS
 app.set('view engine', 'ejs');
-//setting path to 'views' (directory)
+//setting path to 'views' (to directory)
 app.set('views', path.join(__dirname, 'views'));
 
 //tell express to parse bodies as URL encoded of post requests for adding new articles
@@ -45,14 +45,14 @@ app.use(methodOverride('_method'));
 //  ROUTES
 //
 
-//sets up route for CRUD
+//sets up router for CRUD
     //CRUD will most likely be implemented *through* API
     //just wanted it out of app.js for now so it's easier to read
 const CRUDRouter = require(path.resolve(__dirname, "./routes/crud.js"));
-//uses CRUD routing when '/article/' is getting used
+//uses CRUD routing when '/articles/' is getting used
 app.use("/articles/", CRUDRouter);
 
-//sets up route for API
+//sets up router for API
 const apiRouter = require(path.resolve(__dirname, "./routes/api.js"));
 //uses API routing when '/api/' is getting used
 app.use("/api/", apiRouter);

@@ -1,14 +1,16 @@
 //
 //
-//  IMPORTS
+//  IMPORT MODULES
 //
 
 const express = require('express');
+
+//setting up router object
 const apiRouter = express.Router();
 
 //
 //
-//  ROUTES FOR THE API
+//  API ROUTES
 //
 
 apiRouter.get("/", (req,res,next)=>{
@@ -58,4 +60,5 @@ apiRouter.get("/topics/:topicID/articles/:articleID",(req, res, next)=>{
 //  FINAL
 //
 
+//export module to be imported in backend/app.js
 module.exports=apiRouter;
