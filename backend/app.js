@@ -7,6 +7,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
+//importing 'Article' model for Mongoose
 const Article = require('./models/article');
 
 //
@@ -14,6 +15,8 @@ const Article = require('./models/article');
 //  DATABASE
 //  
 
+// connects to database "article-database"
+// creates new database if not already existing
 mongoose.connect('mongodb://localhost:27017/article-database');
 
 const db = mongoose.connection;
