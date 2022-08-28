@@ -1,16 +1,15 @@
 //
+//
 //  IMPORTS
 //
 
 const express = require('express');
 const apiRouter = express.Router();
 
-
+//
 //
 //  ROUTES FOR THE API
 //
-
-//GET requests
 
 apiRouter.get("/", (req,res,next)=>{
 
@@ -18,6 +17,7 @@ apiRouter.get("/", (req,res,next)=>{
 
 })
 
+// 'topics' requests
 
 apiRouter.get("/topics",(req, res, next)=>{
     var object={
@@ -35,6 +35,8 @@ apiRouter.get("/topics/:topicID",(req, res, next)=>{
 
 })
 
+// 'topics/articles' requests
+
 apiRouter.get("/topics/:topicID/articles",(req, res, next)=>{
     var object={
         message: `articles of ${req.params.topicID}`
@@ -51,7 +53,7 @@ apiRouter.get("/topics/:topicID/articles/:articleID",(req, res, next)=>{
 
 })
 
-
+//
 //
 //  FINAL
 //

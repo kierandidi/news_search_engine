@@ -1,4 +1,5 @@
 //
+//
 //  IMPORTS
 //
 
@@ -8,7 +9,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const Article = require('./models/article');
 
-
+//
 //  
 //  DATABASE
 //  
@@ -21,7 +22,7 @@ db.once("open", () => {
     console.log("Database connected");
 });
 
-
+//
 //
 //  EXPRESS SETTINGS
 //
@@ -39,7 +40,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
-
+//
 //
 //  ROUTES
 //
@@ -61,7 +62,7 @@ app.get('*', (req, res) => {
     res.render('home');
 });
 
-
+//
 //
 //  FINAL
 //
