@@ -5,6 +5,11 @@
 
 const express = require('express');
 
+//importing 'Article' model for Mongoose    //  is used for API calls to database
+const Article = require('../models/article');
+//importing 'Topic' model for Mongoose    //  is used for API calls to database
+const Topic = require('../models/topic');
+
 //setting up router object
 const apiRouter = express.Router();
 
@@ -13,46 +18,77 @@ const apiRouter = express.Router();
 //  API ROUTES
 //
 
-apiRouter.get("/", (req,res,next)=>{
+//  Parameters
 
-    res.send("Hello from Routes folder!");
-
+//catching parameter ':topicID'
+apiRouter.param('topicID', (req, res, next) => {
+    console.log(req.params.topicID);
+    next();
 })
 
-// 'topics' requests
-
-apiRouter.get("/topics",(req, res, next)=>{
-    var object={
-        message:"topics"
-    };
-    res.json(object);
-
+//catching parameter ':articleID'
+apiRouter.param('articleID', (req, res, next) => {
+    console.log(req.params.articleID);
+    next();
 })
 
-apiRouter.get("/topics/:topicID",(req, res, next)=>{
-    var object={
-        message: req.params.topicID
-    };
-    res.json(object);
+//  Routes
 
+//  'topics' requests
+
+apiRouter.route("/topics")
+    
+        //returns all topics as JSON
+    .get((req, res, next)=>{
+        
+        //finds all topics 
+        Topic.find({})
+        //returns found topics as JSON
+        .then(data=> res.json(data));
 })
 
-// 'topics/articles' requests
+apiRouter.route("/topics/:topicID")
 
-apiRouter.get("/topics/:topicID/articles",(req, res, next)=>{
-    var object={
-        message: `articles of ${req.params.topicID}`
-    };
-    res.json(object);
+        //returns topic matching ':topicID' as JSON
+    .get((req, res, next)=>{
+        
+        //saving parameter as constant for ease of use
+         const { topicID } = req.params;
 
+        //finds topics matching 'topicID' with value under 'name' key 
+        Topic.find({name:topicID})
+        //returns found topics as JSON
+        .then(data=> res.json(data));
 })
 
-apiRouter.get("/topics/:topicID/articles/:articleID",(req, res, next)=>{
-    var object={
-        message: ` ${req.params.articleID} of ${req.params.topicID}`
-    };
-    res.json(object);
+//  'topics/articles' requests
 
+apiRouter.route("/topics/:topicID/articles")
+
+        //returns all articles under topic matching ':topicID' as JSON
+    .get((req, res, next)=>{
+        
+        //saving parameter as constant for ease of use
+        const { topicID } = req.params;
+
+        //finds articles matching 'topicID' with value under 'topic' key 
+        Article.find({topic:topicID})
+        //returns found articles as JSON
+        .then(data=> res.json(data));
+})
+
+apiRouter.route("/topics/:topicID/articles/:articleID")
+        
+        //returns article matching ':articleID' as JSON
+    .get((req, res, next)=>{
+        
+        //saving parameter as constant for ease of use
+        const { articleID } = req.params;
+
+        //finds articles matching 'articleID' with value under 'headline' key 
+        Article.find({headline:articleID})
+        //returns found articles as JSON
+        .then(data=> res.json(data));
 })
 
 //
