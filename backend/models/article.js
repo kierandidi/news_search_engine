@@ -15,7 +15,7 @@ const Schema = mongoose.Schema;
 //creates Mongoose schema for articles
 const articleSchema = new Schema({
     headline: String,
-    topic: String,  //dropdown?
+    topic: [String],  //dropdown?
     publisher: String, //dropdonw?
     country: String, //dropdown menu?
     release_date: Date, //change to date later on? // Yes - Vincent
