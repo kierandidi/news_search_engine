@@ -31,7 +31,7 @@ const seedDB = async () => {
         const a = new Article({
             headline: `${seed_articles[i].headline}`,
             topic: `${seed_articles[i].topic}`,
-            topics: `${seed_articles[i].topics}`,
+            //topics: `${seed_articles[i].topics}`, //gives cast Error, seeding will only be temporary anyway
             publisher: `${seed_articles[i].publisher}`,
             country: `${seed_articles[i].country}`,
             date: `${seed_articles[i].date}`,
