@@ -14,22 +14,6 @@ db.once("open", () => {
 
 
 const seedDB = async () => {
-    await Article.deleteMany({});
-    for (let i = 0; i < seed_articles.length; i++) {
-        const a = new Article({
-            headline: `${seed_articles[i].headline}`,
-            topic: `${seed_articles[i].topic}`,
-            publisher: `${seed_articles[i].publisher}`,
-            country: `${seed_articles[i].country}`,
-            release_date: `${seed_articles[i].release_date}`,
-            weblink: `${seed_articles[i].weblink}`
-
-        })
-    //logs number of articles added
-    console.log(i+1)
-    //insert logic to automatically put into topic array
-    await a.save();
-    }
     await Topic.deleteMany({});
     for (let i = 0; i < seed_topics.length; i++) {
         const t = new Topic({
@@ -42,6 +26,25 @@ const seedDB = async () => {
     console.log(i+1)
     await t.save();
     }
+    await Article.deleteMany({});
+    for (let i = 0; i < seed_articles.length; i++) {
+        const a = new Article({
+            headline: `${seed_articles[i].headline}`,
+            topic: `${seed_articles[i].topic}`,
+            topics: `${seed_articles[i].topics}`,
+            publisher: `${seed_articles[i].publisher}`,
+            country: `${seed_articles[i].country}`,
+            date: `${seed_articles[i].date}`,
+            img: `${seed_articles[i].img}`,
+            url: `${seed_articles[i].url}`
+
+        })
+    //logs number of articles added
+    console.log(i+1)
+    //insert logic to automatically put into topic array
+    await a.save();
+    }
+    
 }
 
 //seedDB is asynch func => returns promise, use .then to close database connection
