@@ -15,7 +15,7 @@ const CardList = ({articles}) => {
                         return (
                             <Col>
                                 <NewsCard
-                                    key = {i}
+                                    key = {articles[i]._id}
                                     id = {articles[i].id}
                                     topic = {articles[i].topic}
                                     publisher = {articles[i].publisher}
