@@ -35,6 +35,8 @@ app.set('view engine', 'ejs');
 //setting path to 'views' (to directory)
 app.set('views', path.join(__dirname, 'views'));
 
+//  MIDDLEWARE
+
 //tell express to parse bodies as URL encoded of post requests for adding new articles
 app.use(express.urlencoded({extended: true}));
 //tell express to parse request bodies with JSON payloads
