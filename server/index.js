@@ -25,7 +25,7 @@ app.get("/getArticles", (req, res) => {
 
 // feed articles about global warming from DB to frontend
 app.get("/global-warming", (req, res) => {
-    ArticleModel.find({topic: "Global Warming"}, (err, result) => {
+    ArticleModel.find({cardTitle: "Global Warming"}, (err, result) => {
         if (err) {
             res.json(err);
         } else {
@@ -36,7 +36,7 @@ app.get("/global-warming", (req, res) => {
 
 // feed articles about bitcoin from DB to frontend
 app.get("/bitcoin", (req, res) => {
-    ArticleModel.find({topic: "Bitcoin"}, (err, result) => {
+    ArticleModel.find({cardTitle: "Bitcoin"}, (err, result) => {
         if (err) {
             res.json(err);
         } else {
@@ -47,7 +47,7 @@ app.get("/bitcoin", (req, res) => {
 
 // feed articles about abortion from DB to frontend
 app.get("/abortion", (req, res) => {
-    ArticleModel.find({topic: "Supreme Court and abortion"}, (err, result) => {
+    ArticleModel.find({cardTitle: "Supreme Court and abortion"}, (err, result) => {
         if (err) {
             res.json(err);
         } else {
@@ -58,7 +58,7 @@ app.get("/abortion", (req, res) => {
 
 // feed articles about inflation from DB to frontend
 app.get("/inflation", (req, res) => {
-    ArticleModel.find({topic: "US inflation 2022"}, (err, result) => {
+    ArticleModel.find({cardTitle: "US inflation 2022"}, (err, result) => {
         if (err) {
             res.json(err);
         } else {

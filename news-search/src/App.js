@@ -28,21 +28,16 @@ function App() {
     });
   }
 
-  const changeTopicGlobalWarming = () => changeTopic('global-warming')
-  const changeTopicBitcoin = () => changeTopic('bitcoin')
-  const changeTopicAbortion = () => changeTopic('abortion')
-  const changeTopicInflation = () => changeTopic('inflation')
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={
           <SharedLayout 
             allTopics={allTopics}
-            changeTopicGlobalWarming={changeTopicGlobalWarming}
-            changeTopicBitcoin={changeTopicBitcoin}
-            changeTopicAbortion={changeTopicAbortion}
-            changeTopicInflation={changeTopicInflation}
+            changeTopicGlobalWarming={() => changeTopic('global-warming')}
+            changeTopicBitcoin={() => changeTopic('bitcoin')}
+            changeTopicAbortion={() => changeTopic('abortion')}
+            changeTopicInflation={() => changeTopic('inflation')}
           />
         }>
           <Route index element={<Home articles={feed}/>} />

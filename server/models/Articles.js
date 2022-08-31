@@ -7,7 +7,7 @@ const ArticleSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    topic: {
+    cardTitle: {
         type: String,
         required: true
     },
@@ -20,7 +20,7 @@ const ArticleSchema = new mongoose.Schema({
         required: true
     },
     date: {
-        type: String,
+        type: Date,
         required: true
     },
     headline: {
