@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 //
 //
-//  Mongoose Models
+//  SCHEMA
 //
 
 const Schema = mongoose.Schema;
@@ -17,17 +17,25 @@ const topicSchema = new Schema({
     name: String,
     description: String,
     numOfArticles: Number, 
-    articles: [mongoose.ObjectId]
+    articles: [mongoose.Schema.Types.ObjectId]
 });
 
-//creates model based on schema (a 'topic' class)
-//also creates a collection within database called 'topics'
-const Topic = mongoose.model('Topic', topicSchema);
+//
+//
+//  Methods
+//
+
+//  Instance Methods
+
 
 //
 //
 //  FINAL
 //
+
+//creates model based on schema (a 'topic' class)
+//also creates a collection within database called 'topics'
+const Topic = mongoose.model('Topic', topicSchema);
 
 //export module to be imported in
 //  backend/routes/api.js
