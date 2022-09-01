@@ -11,18 +11,16 @@ const CardList = ({articles}) => {
         <Container className='mt-5 pt-5'>
             <Row xs={1} md={2} className="g-4">
                 {
-                    articles.map( (article, i) => {
+                    articles.map( (article) => {
                         return (
                             <Col>
                                 <NewsCard
-                                    key = {i}
-                                    id = {articles[i].id}
-                                    topic = {articles[i].topic}
-                                    publisher = {articles[i].publisher}
-                                    headline = {articles[i].headline}
-                                    date = {articles[i].date}
-                                    img = {articles[i].img}
-                                    url = {articles[i].url}
+                                    key = {article._id}
+                                    cardTitle = {article.cardTitle}
+                                    headline = {article.headline}
+                                    date = {article.date}
+                                    img = {article.img}
+                                    url = {article.url}
                                 />
                             </Col>
                         );

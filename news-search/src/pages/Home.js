@@ -1,7 +1,7 @@
 import CardList from '../components/CardList';
-import {articles} from '../Articles'
+// import {articles} from '../Articles'
 
-const Home = () => {
+const Home = ({articles}) => {
   return (
     <CardList articles = {articles}/>
   );

@@ -1,19 +1,19 @@
 export const articles = [
     {
-        id: 1,
-        topic: 'Supreme Court and abortion',
+        cardTitle: 'Supreme Court and abortion', // change name to cardTitle
+        topics: [],
         publisher: 'CNBC',
-        country: 'US',
-        date: '2022-06-24',
+        country: 'US', // not required in frontend
+        date: '2022-06-24', // change from string to Date
         headline: 'Supreme Court overturns Roe v. Wade, ending 50 years of federal abortion rights',
         img: 'https://image.cnbcfm.com/api/v1/image/107080377-1656083242933-gettyimages-1241500916-AFP_32D693E.jpeg?v=1656092102&w=740&h=416',
         url: 'https://www.cnbc.com/2022/06/24/roe-v-wade-overturned-by-supreme-court-ending-federal-abortion-rights.html'
     },
     
     {
-        id: 2,
-        topic: 'Supreme Court and abortion',
+        cardTitle: 'Supreme Court and abortion',
         publisher: 'ABC',
+        topics: [],
         country: 'Australia',
         date: '2022-06-24',
         headline: 'Supreme Court overturns Roe v. Wade in landmark case on abortion rights',
@@ -22,9 +22,9 @@ export const articles = [
     },
     
     {
-        id: 3,
-        topic: 'Supreme Court and abortion',
+        cardTitle: 'Supreme Court and abortion',
         publisher: 'AlJazeera',
+        topics: [],
         country: 'Katar',
         date: '2022-06-24',
         headline: 'US Supreme Court overturns landmark Roe v Wade abortion ruling',
@@ -33,9 +33,9 @@ export const articles = [
     },
     
     {
-        id: 4,
-        topic: 'US inflation 2022',
+        cardTitle: 'US inflation 2022',
         publisher: 'Bloomberg',
+        topics: [],
         country: 'US',
         date: '2022-07-11',
         headline: 'Inflation Expectations Three Years Out Ease to 3.6%, NY Fed Survey Shows',
@@ -44,9 +44,9 @@ export const articles = [
     },
     
     {
-        id: 5,
-        topic: 'US inflation 2022',
+        cardTitle: 'US inflation 2022',
         publisher: 'Kitco',
+        topics: [],
         country: 'US',
         date: '2022-07-11',
         headline: 'June headline inflation to exceed 8.6%, the annual inflation rate in May',
@@ -55,9 +55,9 @@ export const articles = [
     },
     
     {
-        id: 6,
-        topic: 'US inflation 2022',
+        cardTitle: 'US inflation 2022',
         publisher: 'CNBC',
+        topics: [],
         country: 'US',
         date: '2022-07-12',
         headline: 'Treasury yields dip as markets prepare for release of key inflation data',
@@ -66,9 +66,9 @@ export const articles = [
     },
     
     {
-        id: 7,
-        topic: 'US inflation 2022',
+        cardTitle: 'US inflation 2022',
         publisher: 'Business Standard',
+        topics: [],
         country: 'US',
         date: '2022-07-11',
         headline: 'World shares slide ahead of US\' inflation data, earnings hurdles',
@@ -77,9 +77,9 @@ export const articles = [
     },
     
     {
-        id: 8,
-        topic: 'Bitcoin',
+        cardTitle: 'Bitcoin',
         publisher: 'The New York Times',
+        topics: [],
         country: 'US',
         date: '2022-07-02',
         headline: 'El Salvador\'s Bitcoin Paradise Is a Mirage',
@@ -88,9 +88,9 @@ export const articles = [
     },
     
     {
-        id: 9,
-        topic: 'Bitcoin',
+        cardTitle: 'Bitcoin',
         publisher: 'Bitcoin.com',
+        topics: [],
         country: 'Saint Kitts and Nevis',
         date: '2022-07-12',
         headline: 'British MP Calls for \'Liberal\' Crypto Regulation — Says \'No Country Can Stop This Revolution\'',
@@ -99,9 +99,9 @@ export const articles = [
     },
     
     {
-        id: 10,
-        topic: 'Bitcoin',
+        cardTitle: 'Bitcoin',
         publisher: 'BBC',
+        topics: [],
         country: 'UK',
         date: '2022-06-14',
         headline: 'Bitcoin: Why is the largest cryptocurrency crashing?',
@@ -110,9 +110,9 @@ export const articles = [
     },
     
     {
-        id: 11,
-        topic: 'Bitcoin',
+        cardTitle: 'Bitcoin',
         publisher: 'The Motley Fool',
+        topics: [],
         country: 'US',
         date: '2022-07-09',
         headline: 'Is Bitcoin a Good Inflation Hedge?',
@@ -121,9 +121,9 @@ export const articles = [
     },
     
     {
-        id: 12,
-        topic: 'Bitcoin',
+        cardTitle: 'Bitcoin',
         publisher: 'CNBC',
+        topics: [],
         country: 'US',
         date: '2022-07-08',
         headline: 'Bitcoin was supposed to hedge against inflation—here\'s why it hasn\'t worked that way',
@@ -132,9 +132,9 @@ export const articles = [
     },
     
     {
-        id: 13,
-        topic: 'Global Warming',
+        cardTitle: 'Global Warming',
         publisher: 'BBC',
+        topics: [],
         country: 'UK',
         date: '2021-10-25',
         headline: 'Climate change: How do we know it is happening and caused by humans?',
@@ -143,9 +143,9 @@ export const articles = [
     },
     
     {
-        id: 14,
-        topic: 'Global Warming',
+        cardTitle: 'Global Warming',
         publisher: 'Science.org',
+        topics: [],
         country: 'US',
         date: '2022-02-28',
         headline: 'U.N. panel warns of global warming\'s toll on humans and nature',
@@ -154,9 +154,9 @@ export const articles = [
     },
     
     {
-        id: 15,
-        topic: 'Global Warming',
+        cardTitle: 'Global Warming',
         publisher: 'Cornell University',
+        topics: [],
         country: 'US',
         date: '2021-10-19',
         headline: 'More than 99.9% of studies agree: Humans caused climate change',
@@ -165,9 +165,9 @@ export const articles = [
     },
     
     {
-        id: 16,
-        topic: 'Global Warming',
+        cardTitle: 'Global Warming',
         publisher: 'Down to Earth',
+        topics: [],
         country: 'India',
         date: '2021-08-10',
         headline: 'Humans have caused almost 100% of global warming, says new IPCC report',
@@ -176,9 +176,9 @@ export const articles = [
     },
     
     {
-        id: 17,
-        topic: 'Global Warming',
+        cardTitle: 'Global Warming',
         publisher: 'UN',
+        topics: [],
         country: 'US',
         date: '2022-04-04',
         headline: 'UN climate report: It\'s \'now or never\' to limit global warming to 1.5 degrees',
@@ -187,32 +187,13 @@ export const articles = [
     },
     
     {
-        id: 18,
-        topic: 'Global Warming',
+        cardTitle: 'Global Warming',
         publisher: 'https://www.nature.com/',
+        topics: [],
         country: 'UK',
         date: '2022-02-28',
         headline: 'Climate change is hitting the planet faster than scientists originally thought',
         img: 'https://media.nature.com/lw800/magazine-assets/d41586-022-00585-7/d41586-022-00585-7_20176136.jpg',
         url: 'https://www.nature.com/articles/d41586-022-00585-7'
-    },
-    /*
-    {
-        topic: ,
-        publisher: ,
-        country: ,
-        date: ,
-        headline: ,
-        url:
-    },
-    
-    {
-        topic: ,
-        publisher: ,
-        country: ,
-        date: ,
-        headline: ,
-        url:
     }
-    */
     ]
