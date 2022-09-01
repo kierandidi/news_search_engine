@@ -2,15 +2,12 @@ import { Outlet} from 'react-router-dom'
 import NavbarExpand from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const SharedLayout = ({changeTopicBitcoin, changeTopicAbortion, changeTopicInflation,changeTopicGlobalWarming, allTopics}) => {
+const SharedLayout = ({topics, allArticles}) => {
   return (
     <>
       <NavbarExpand 
-        allTopics={allTopics}
-        changeTopicBitcoin={changeTopicBitcoin}
-        changeTopicAbortion={changeTopicAbortion}
-        changeTopicInflation={changeTopicInflation}
-        changeTopicGlobalWarming={changeTopicGlobalWarming}
+        allArticles={allArticles}
+        topics={topics}
       />
       <Outlet/>
       <Footer /> 

@@ -9,7 +9,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from './img/athenas-delta-logo/athenas_delta_logo_transparent.png';
 import Logo2 from './img/athenas-delta-logo/athenas-logo-only.png';
 
-function NavbarExpand({allTopics, changeTopicBitcoin, changeTopicAbortion, changeTopicInflation,changeTopicGlobalWarming}) {
+function NavbarExpand({allArticles, topics}) {
   const [over, setOver] = useState(false);
   return (
     <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark" className=' shadow'>
@@ -22,21 +22,16 @@ function NavbarExpand({allTopics, changeTopicBitcoin, changeTopicAbortion, chang
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to='/'><div onClick={allTopics}>Home</div></Nav.Link>
+            <Nav.Link as={Link} to='/'><div onClick={allArticles}>Home</div></Nav.Link>
             <Nav.Link as={Link} to='/'>About</Nav.Link>
             <NavDropdown title="Topics" id="collasible-nav-dropdown">
-              <NavDropdown.Item>
-                <div onClick={changeTopicGlobalWarming}>Global Warming</div>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-              <div onClick={changeTopicBitcoin}>Bitcoin</div>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <div onClick={changeTopicAbortion}>Abortion</div>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <div onClick={changeTopicInflation}>Inflation</div>
-              </NavDropdown.Item>
+              {topics.map(topic=> {
+                return(
+                  <NavDropdown.Item>
+                    <div onClick={()=>(topic.setQuery())}>{topic.title}</div>
+                  </NavDropdown.Item>
+                )
+              })}
             </NavDropdown>
           </Nav>
           <Nav>

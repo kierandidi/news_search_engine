@@ -11,12 +11,36 @@ import Error from './pages/Error';
 
 function App() {
   const [feed, setFeed] = useState([]);
+  const [topics, setTopics] = useState([
+    {
+      topicId: "global-warming",
+      title: "Global Warming",
+      setQuery() {changeTopic(this.topicId)}
+    },
+    {
+      topicId: "bitcoin",
+      title: "Bitcoin",
+      setQuery() {changeTopic(this.topicId)}
+    },
+    {
+      topicId: "abortion",
+      title: "Abortion",
+      setQuery() {changeTopic(this.topicId)}
+    },
+    {
+      topicId: "inflation",
+      title: "Inflation",
+      setQuery() {changeTopic(this.topicId)}
+    }
+  ])
+
+  console.log(topics)
 
   useEffect(()=> {
-    allTopics();
+    allArticles();
   },[]);
 
-  const allTopics = () => {
+  const allArticles = () => {
     Axios.get("http://localhost:3001/getArticles").then((response)=> {
       setFeed(response.data);
     })
@@ -33,11 +57,8 @@ function App() {
       <Routes>
         <Route path='/' element={
           <SharedLayout 
-            allTopics={allTopics}
-            changeTopicGlobalWarming={() => changeTopic('global-warming')}
-            changeTopicBitcoin={() => changeTopic('bitcoin')}
-            changeTopicAbortion={() => changeTopic('abortion')}
-            changeTopicInflation={() => changeTopic('inflation')}
+            allArticles={allArticles}
+            topics={topics}
           />
         }>
           <Route index element={<Home articles={feed}/>} />
