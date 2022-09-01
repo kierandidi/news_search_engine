@@ -13,16 +13,43 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //creates Mongoose schema for topics
-const topicSchema = new Schema({
-    name: String,
-    description: String,
-    numOfArticles: Number, 
-    articles: [mongoose.Schema.Types.ObjectId]
-});
+const topicSchema = new Schema(
+    
+    //  SchemaTyping
+    
+    {
+        name: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: false
+        },
+        numOfArticles: {
+            type: Number,
+            required: false
+        }, 
+        articles: [{
+            type: mongoose.ObjectId,
+            required: false,            
+            //populate: {},
+            ref: 'Article'
+        }]
+    },
+
+        //  Options
+
+    {
+        autoIndex: true,    //turn off for production
+        autoCreate: true,    //turn off for production
+    }
+
+);
 
 //
 //
-//  Methods
+//  METHODS
 //
 
 //  Instance Methods
@@ -33,7 +60,7 @@ const topicSchema = new Schema({
 //  FINAL
 //
 
-//creates model based on schema (a 'topic' class)
+//creates model based on topicSchema (a 'topic' class)
 //also creates a collection within database called 'topics'
 const Topic = mongoose.model('Topic', topicSchema);
 

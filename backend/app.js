@@ -62,6 +62,7 @@ app.use("/api/", apiRouter);
 
 //defaults to homepage when no other request is used (make sure this is the last request!)
 app.get('*', (req, res) => {
+    //update link to frontend!!
     res.render('home');
 });
 

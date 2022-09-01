@@ -34,7 +34,7 @@ apiRouter.param('articleID', (req, res, next) => {
     next();
 })
 
-//  TOPICS
+//  Topics
 
 apiRouter.route("/topics")
     
@@ -68,6 +68,8 @@ apiRouter.route("/topics/:topicID")
 
         //finds topic where _id = ':topicID'
         Topic.findById(topicID)
+        //populates the articles array with corresponding articles
+        .populate('articles')
         //returns found topics as JSON
         .then(data=> res.json(data));
 })
@@ -110,10 +112,12 @@ apiRouter.route("/topics/:topicID/articles")
         //saving parameter as constant for ease of use
         const { topicID } = req.params;
 
-        //finds articles matching 'topicID' with value under 'topic' key 
-        Article.find({topic:topicID})
-        //returns found articles as JSON
-        .then(data=> res.json(data));
+        //finds topic where _id = ':topicID' 
+        Topic.findById(topicID)
+        //populates the articles array with corresponding articles
+        .populate('articles')
+        //returns topic.articles as JSON
+        .then(data=> res.json(data.articles));
 })
         //creates new article and returns it as a JSON
         //tends to work way better if input is a single JSON object and not an array
@@ -130,7 +134,7 @@ apiRouter.route("/topics/:topicID/articles")
 })
         
 
-//  ARTICLES
+//  Articles
 
 apiRouter.route("/articles")
 
@@ -165,6 +169,8 @@ apiRouter.route("/articles/:articleID")
 
         //finds articles with _id = 'articleID'
         Article.findById(articleID)
+        //populates the  topics array with corresponding topics, but only their names
+        .populate('topics','name')
         //returns found article as JSON
         .then(data=> res.json(data));
 })
@@ -180,7 +186,7 @@ apiRouter.route("/articles/:articleID")
             returnDocument: 'after' //returns document after being updated
         }
 
-        //findsarticle where _id = ':articleID'
+        //find sarticle where _id = ':articleID'
         //updates according to JSON input
         Article.findByIdAndUpdate(articleID, req.body, options)
         //returns updated article as JSON
@@ -200,9 +206,6 @@ apiRouter.route("/articles/:articleID")
 })
 
 apiRouter.route("/articles/:articleID/topics")
-    /*  this is unused because Topic.find *will* break.
-        Find an elegant way to find :articleID in the articles array of all topics
-        Or make it that articles have the _ids of their topics
 
         //returns all topics under article matching ':articleID' as JSON
     .get((req, res, next)=>{
@@ -210,11 +213,13 @@ apiRouter.route("/articles/:articleID/topics")
         //saving parameter as constant for ease of use
         const { articleID } = req.params;
 
-        //finds topics matching 'articleID' with value under 'article' key 
-        Topic.find({articles:articleID})
-        //returns found topics as JSON
-        .then(data=> res.json(data));
-})  */
+        //finds article where _id = ':articleID' 
+        Article.findById(articleID)
+        //populates the topics array with corresponding topics, but only their names
+        .populate('topics', 'name')
+        //returns article.topics as JSON
+        .then(data=> res.json(data.topics));
+}) 
         //creates new topic and returns it as a JSON
         //tends to work way better if input is a single JSON object and not an array
             //this is a very special path, as it has an unused parameter in :articleID

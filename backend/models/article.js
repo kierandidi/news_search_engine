@@ -15,83 +15,73 @@ const Topic = require('./topic');
 const Schema = mongoose.Schema;
 
 //creates Mongoose schema for articles
-const articleSchema = new Schema({
-    headline: {
-        type: String
+const articleSchema = new Schema(
+    
+        //  SchemaTyping
+
+    {
+        headline: {
+            type: String,
+            required: [true, 'headline is required'],
+            index: true
+        },
+        cardTitle: {
+            type: String,
+            required: [true, 'cardTitle is required'],         
+        },
+        topics: [{
+            type: mongoose.ObjectId,
+            required: [false, ''],
+            index: true,
+            //populate: {path:'topics', select: 'name'},    this straight up doesn't work. Mongoose documentation is a mess
+            ref: 'Topic'
+        }],
+        publisher: {
+            type: String,
+            required: [true, 'publisher is required']
+        },
+        country: {
+            type: String,
+            required: [false, '']
+        },
+        date: {
+            type: Date,
+            requried: [true, 'date is required'],
+            max: [Date.now, 'article cannot be released in the future']
+        },
+        img: {
+            type: String,
+            required: [false, '']
+        },
+        url: {
+            type: String,
+            required: [true, 'url is required']
+        }
     },
-    topic: {
-        type: String            //old entry for Frontend
-    },
-    topics: [{
-        type: mongoose.ObjectId //array of topic ObjectIDs, not implemented yet
-    }],
-    publisher: {
-        type: String
-    }, //dropdonw?
-    country: {
-        type: String
-    }, //dropdown menu?
-    date: {
-        type: Date
-    },
-    img: {
-        type: String
-    },
-    url: {
-        type: String
-    }  
-});
+    
+        //  Options
+    
+    {
+        autoIndex: true,    //turn off for production
+        autoCreate: true,    //turn off for production
+    }
+);
 
 //
 //
-//  Methods
+//  METHODS
 //
 
 //  Instance Methods
 
-/*SLEEP DEPRiVED CODING AHEAD
-//adds topics to 'topic' array
-//topicArray must be an array of topic names
-articleSchema.methods.addTopicsByName = function(topicArray){
 
-        //for every topic in topicArray
-        for (topic of topicArray){
-            //search for topics with matching name
-            Topic.find({name:topic})
-            //then return their data
-            .then((data) => {
-                //and for each topic found
-                for (topic of data){
-                    //push the ObjectId of found topic on topics array
-                    this.topics.push(topic._id);
-                    //then add itself into the topic's 'articles' array
-                    topic.addArticle(this)
-                }
-            })
-        }
-        return this.save();
-}
-
-//adds topics to 'topic' array
-//topicArray must be an array of topic IDs
-articleSchema.methods.addTopicsById = function(topicArray){
-
-    //for every topic in topicArray
-    for (topic of topicArray){
-        //push the ObjectId of topic on topics array
-        //!!This needs to check for errors!!
-        this.topics.push(topic._id);
-    }
-    return this.save();
-}
-*/
 
 //
 //
 //  FINAL
 //
 
-//creates model based on schema (an 'article' class)
+//creates model based on articleSchema (an 'article' class)
 //also creates a collection within database called 'articles'
 const Article = mongoose.model('Article', articleSchema);
 
