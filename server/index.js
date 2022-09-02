@@ -23,6 +23,18 @@ app.get("/getArticles", (req, res) => {
     });
 });
 
+app.get("/api/search/:query", async (req, res) => {
+    let result = await ArticleModel.find(
+        {
+            "$or":[
+            {cardTitle:{$regex:req.params.query, $options: "i"}},
+            {headline:{$regex:req.params.query, $options: "i"}}
+            ]
+        }
+    )
+        res.json(result);
+});
+
 // feed articles about global warming from DB to frontend
 app.get("/global-warming", (req, res) => {
     ArticleModel.find({cardTitle: "Global Warming"}, (err, result) => {

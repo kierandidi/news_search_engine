@@ -9,8 +9,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from './img/athenas-delta-logo/athenas_delta_logo_transparent.png';
 import Logo2 from './img/athenas-delta-logo/athenas-logo-only.png';
 
-function NavbarExpand({allArticles, topics}) {
+function NavbarExpand({allArticles, topics, searchFunction}) {
   const [over, setOver] = useState(false);
+  const [text, setText] = useState('')
+    
+  const onChange = (q) => {
+      setText(q)
+      searchFunction(q)
+  }
   return (
     <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark" className=' shadow'>
       <Container>
@@ -42,8 +48,10 @@ function NavbarExpand({allArticles, topics}) {
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={text}
+                onChange={(e)=> onChange(e.target.value)}
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success" onClick={searchFunction(text)}>Search</Button>
             </Form>
           </Nav>
         </Navbar.Collapse>
