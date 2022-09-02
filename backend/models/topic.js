@@ -20,19 +20,19 @@ const topicSchema = new Schema(
     {
         name: {
             type: String,
-            required: true
+            required: [true, 'name is required']
         },
         description: {
             type: String,
-            required: false
+            required: [false, '']
         },
         numOfArticles: {
             type: Number,
-            required: false
+            required: [false, '']
         }, 
         articles: [{
             type: mongoose.ObjectId,
-            required: false,            
+            required: [false, ''],            
             //populate: {},
             ref: 'Article'
         }]

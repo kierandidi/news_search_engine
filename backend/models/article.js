@@ -23,7 +23,7 @@ const articleSchema = new Schema(
         headline: {
             type: String,
             required: [true, 'headline is required'],
-            index: true
+            index: 'text'
         },
         cardTitle: {
             type: String,

@@ -234,6 +234,26 @@ apiRouter.route("/articles/:articleID/topics")
         .then(data=> res.json(data));
 })
 
+    //  SEARCH
+
+apiRouter.route('/search')
+
+        //searches all article headlines for matching text
+    .get((req, res, next) => {
+    
+    //saves query  as a constant for ease of use
+    const query = req.query.query
+    console.log(query);
+
+    Article.find({
+        $text: {
+            $search : query
+        }
+    })
+    .then(data=> res.json(data))
+    
+})
+
 //
 //
 //  FINAL
