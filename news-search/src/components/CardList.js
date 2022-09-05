@@ -6,21 +6,20 @@ import Row from 'react-bootstrap/Row';
 
 import NewsCard from './NewsCard';
 
-const CardList = ({articles}) => {
+const CardList = ({ articles }) => {
     return (
         <Container className='mt-5 pt-5'>
             <Row xs={1} md={2} className="g-4">
                 {
-                    articles.map( (article) => {
+                    articles.map((article) => {
                         return (
-                            <Col>
+                            <Col key={article._id}>
                                 <NewsCard
-                                    key = {article._id}
-                                    cardTitle = {article.cardTitle}
-                                    headline = {article.headline}
-                                    date = {article.date}
-                                    img = {article.img}
-                                    url = {article.url}
+                                    cardTitle={article.cardTitle}
+                                    headline={article.headline}
+                                    date={article.date}
+                                    img={article.img}
+                                    url={article.url}
                                 />
                             </Col>
                         );

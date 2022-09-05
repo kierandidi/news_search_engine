@@ -1,17 +1,18 @@
-import { Outlet} from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import NavbarExpand from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const SharedLayout = ({allArticles, topics, searchFunction}) => {
+const SharedLayout = ({ getAllArticles, topics, onSearch, changeTopic }) => {
   return (
     <>
-      <NavbarExpand 
-        allArticles={allArticles}
+      <NavbarExpand
+        getAllArticles={getAllArticles}
         topics={topics}
-        searchFunction={searchFunction}
+        onSearch={onSearch}
+        changeTopic={changeTopic}
       />
-      <Outlet/>
-      <Footer /> 
+      <Outlet />
+      <Footer />
     </>
   );
 };

@@ -11,47 +11,40 @@ import Error from './pages/Error';
 
 function App() {
   const [feed, setFeed] = useState([]);
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
   const [topics, setTopics] = useState([
     {
       topicId: "global-warming",
       title: "Global Warming",
-      setQuery() { changeTopic(this.topicId) }
     },
     {
       topicId: "bitcoin",
       title: "Bitcoin",
-      setQuery() { changeTopic(this.topicId) }
     },
     {
       topicId: "abortion",
       title: "Abortion",
-      setQuery() { changeTopic(this.topicId) }
     },
     {
       topicId: "inflation",
       title: "Inflation",
-      setQuery() { changeTopic(this.topicId) }
     }
-  ])
-
-  console.log(topics)
+  ]);
 
   useEffect(() => {
-    allArticles();
+    getAllArticles();
   }, []);
-  // /api/search?query=text
 
   useEffect(() => {
-    const fetchArcticles = () => {
-      Axios.get(`http://localhost:3001/api/search/${search}`).then((response)=>{
+    const searchArcticles = () => {
+      Axios.get(`http://localhost:3001/api/search/${search}`).then((response) => {
         setFeed(response.data);
-      })
+      });
     }
-    fetchArcticles();
-  }, [search])
+    searchArcticles();
+  }, [search]);
 
-  const allArticles = () => {
+  const getAllArticles = () => {
     Axios.get("http://localhost:3001/getArticles").then((response) => {
       setFeed(response.data);
     })
@@ -63,8 +56,8 @@ function App() {
     });
   }
 
-  const searchFunction = (q) => {
-    setSearch(q)
+  const onSearch = (q) => {
+    setSearch(q);
   }
 
   return (
@@ -72,9 +65,10 @@ function App() {
       <Routes>
         <Route path='/' element={
           <SharedLayout
-            allArticles={allArticles}
+            getAllArticles={getAllArticles}
             topics={topics}
-            searchFunction={searchFunction}
+            onSearch={onSearch}
+            changeTopic={changeTopic}
           />
         }>
           <Route index element={<Home articles={feed} />} />
