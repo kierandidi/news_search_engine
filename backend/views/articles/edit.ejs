@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit article</title>
+</head>
+<body>
+    <h1>Edit article</h1>
+    <form action="/articles/<%= article._id %>?_method=PUT" method="POST">
+        <div>
+            <label for="headline">Headline</label>
+            <input type="text" id="headline" name="article[headline]" value="<%= article.headline %> ">
+        </div>
+        <div>
+            <label for="topic">Topic</label>
+            <input type="text" id="topic" name="article[topic]" value="<%= article.topic %> ">
+        </div>
+        <div>
+            <label for="publisher">Publisher</label>
+            <input type="text" id="publisher" name="article[publisher]" value="<%= article.publisher %> ">
+        </div>
+        <div>
+            <label for="country">Country</label>
+            <input type="text" id="country" name="article[country]" value="<%= article.country %> ">
+        </div>
+        <div>
+            <label for="release_date">Release Date</label>
+            <input type="text" id="release_date" name="article[release_date]" value="<%= article.release_date %> ">
+        </div>
+        <div>
+            <label for="weblink">Weblink</label>
+            <input type="text" id="weblink" name="article[weblink]" value="<%= article.weblink %> ">
+        </div>
+        <button>Update article</button>
+    </form>
+    <footer>
+
+        <a href="/articles/<%= article._id %> ">Back to article</a>
+    </footer>
+</body>
+</html>
