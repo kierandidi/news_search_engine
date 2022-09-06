@@ -12,46 +12,38 @@ import Error from './pages/Error';
 function App() {
   const [feed, setFeed] = useState([]);
   const [search, setSearch] = useState('');
-  const [topics, setTopics] = useState([
-    {
-      topicId: "global-warming",
-      title: "Global Warming",
-    },
-    {
-      topicId: "bitcoin",
-      title: "Bitcoin",
-    },
-    {
-      topicId: "abortion",
-      title: "Abortion",
-    },
-    {
-      topicId: "inflation",
-      title: "Inflation",
-    }
-  ]);
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
     getAllArticles();
   }, []);
 
   useEffect(() => {
+    const getAllTopics = () => {
+      Axios.get("http://localhost:3001/api/topics").then((response) => {
+        setTopics(response.data);
+      })
+    }
+    getAllTopics();
+  }, []);
+
+  useEffect(() => {
     const searchArcticles = () => {
-      Axios.get(`http://localhost:3001/api/search/${search}`).then((response) => {
+      Axios.get(`http://localhost:3001/api/search?query=${search}`).then((response) => {
         setFeed(response.data);
       });
     }
-    searchArcticles();
-  }, [search]);
+    search ? searchArcticles() : setFeed(feed);
+  }, [search, feed]);
 
   const getAllArticles = () => {
-    Axios.get("http://localhost:3001/getArticles").then((response) => {
+    Axios.get("http://localhost:3001/api/articles").then((response) => {
       setFeed(response.data);
     })
   }
 
   function changeTopic(topic) {
-    Axios.get(`http://localhost:3001/${topic}`).then((response) => {
+    Axios.get(`http://localhost:3001/api/topics/${topic}/articles`).then((response) => {
       setFeed(response.data);
     });
   }
