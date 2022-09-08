@@ -1,0 +1,9 @@
+# Dependencies
+/node_modules
+
+# MongoDB
+StartMongo.bat
+StartMongod.bat
+
+# ToDos
+# todo.txt

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new article</title>
+</head>
+<body>
+    <form action="/articles" method="POST">
+        <div>
+            <label for="headline">Headline</label>
+            <input type="text" id="headline" name="article[headline]">
+        </div>
+        <div>
+            <label for="topic">Topic</label>
+            <input type="text" id="topic" name="article[topic]">
+        </div>
+        <div>
+            <label for="publisher">Publisher</label>
+            <input type="text" id="publisher" name="article[publisher]">
+        </div>
+        <div>
+            <label for="country">Country</label>
+            <input type="text" id="country" name="article[country]">
+        </div>
+        <div>
+            <label for="release_date">Release Date</label>
+            <input type="text" id="release_date" name="article[release_date]">
+        </div>
+        <div>
+            <label for="weblink">Weblink</label>
+            <input type="text" id="weblink" name="article[weblink]">
+        </div>
+        <button>Add article</button>
+    </form>
+    <footer>
+        <a href="/articles">Back to all articles</a>
+    </footer>
+</body>
+</html>
