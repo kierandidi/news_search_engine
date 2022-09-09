@@ -1,5 +1,5 @@
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://github.com/kierandidi/news_search_engine/blob/main/root/react-app/src/components/img/athenas-delta-logo/athenas-logo-only.png)
 
 
 # Athena Delta: Unbiased News Website
