@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const getAllTopics = () => {
-      Axios.get("http://localhost:3001/api/topics").then((response) => {
+      Axios.get(`/api/topics`).then((response) => {
         setTopics(response.data);
       })
     }
@@ -29,21 +29,23 @@ function App() {
 
   useEffect(() => {
     const searchArcticles = () => {
-      Axios.get(`http://localhost:3001/api/search?query=${search}`).then((response) => {
+      Axios.get(`/api/search?query=${search}`).then((response) => {
         setFeed(response.data);
       });
     }
-    search ? searchArcticles() : setFeed(feed);
-  }, [search, feed]);
+    if (search) {
+      searchArcticles();
+    }
+  }, [search]);
 
   const getAllArticles = () => {
-    Axios.get("http://localhost:3001/api/articles").then((response) => {
+    Axios.get(`/api/articles`).then((response) => {
       setFeed(response.data);
     })
   }
 
   function changeTopic(topic) {
-    Axios.get(`http://localhost:3001/api/topics/${topic}/articles`).then((response) => {
+    Axios.get(`/api/topics/${topic}/articles`).then((response) => {
       setFeed(response.data);
     });
   }

@@ -1,26 +1,13 @@
-//
-//
 //  IMPORT MODULES
-//
-
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
-
 const cors = require("cors");
 
-
-//
-//  
 //  DATABASE
-//  
-
-// connects to database "article-database"
-// creates new database if not already existing
-
-mongoose.connect("mongodb+srv://<username>:<password>@cluster0.q1v82gf.mongodb.net/?retryWrites=true&w=majority");
-
+// connects to database "article-database", creates new database if not already existing
+mongoose.connect(process.env.DB_URI);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
@@ -28,58 +15,35 @@ db.once("open", () => {
     console.log("Database connected");
 });
 
-//
-//
 //  EXPRESS SETTINGS
-//
-
 const app = express();
 
-//setting HTML templating engine to EJS
-app.set('view engine', 'ejs');
-//setting path to 'views' (to directory)
-app.set('views', path.join(__dirname, 'views'));
-
 //  MIDDLEWARE
-
 //tell express to parse bodies as URL encoded of post requests for adding new articles
 app.use(express.urlencoded({extended: true}));
 //tell express to parse request bodies with JSON payloads
 app.use(express.json());
-
 app.use(cors());
+app.use(methodOverride('_method'));
 
 
-//
-//
 //  ROUTES
-//
-
-//sets up router for CRUD
-    //CRUD will most likely be implemented *through* API
-    //just wanted it out of app.js for now so it's easier to read
-const CRUDRouter = require(path.resolve(__dirname, "./routes/crud.js"));
-//uses CRUD routing when '/articles/' is getting used
-app.use("/articles/", CRUDRouter);
-
 //sets up router for API
 const apiRouter = require(path.resolve(__dirname, "./routes/api.js"));
 //uses API routing when '/api/' is getting used
 app.use("/api/", apiRouter);
-
 //defaults to homepage when no other request is used (make sure this is the last request!)
-app.get('*', (req, res) => {
-    //update link to frontend!!
-    res.render('home');
-});
 
-//
-//
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
+    app.use(express.static('react-app/build'));
+    app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/react-app/build/index.html'));
+    });
+   }
+
 //  FINAL
-//
+const PORT = process.env.PORT || 3001;
 
-
-app.listen(3001, () => {
-    console.log('Serving on port 3001')
+app.listen(PORT, () => {
+    console.log('Server connected!')
 });
-

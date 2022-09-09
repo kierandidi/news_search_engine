@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "node app.js",
+    "heroku-postbuild": "cd react-app && npm install && npm run build"
+    },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.5.0"
+  },
+  "engines": {
+    "node": "18.8.0"
+  }
+}
