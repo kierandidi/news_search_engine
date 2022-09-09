@@ -8,6 +8,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 
+const cors = require("cors");
+
+
 //
 //  
 //  DATABASE
@@ -15,7 +18,9 @@ const methodOverride = require('method-override')
 
 // connects to database "article-database"
 // creates new database if not already existing
-mongoose.connect('mongodb://localhost:27017/article-database');
+
+mongoose.connect("mongodb+srv://<username>:<password>@cluster0.q1v82gf.mongodb.net/?retryWrites=true&w=majority");
+
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
@@ -41,7 +46,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({extended: true}));
 //tell express to parse request bodies with JSON payloads
 app.use(express.json());
-app.use(methodOverride('_method'));
+
+app.use(cors());
+
 
 //
 //
@@ -71,6 +78,8 @@ app.get('*', (req, res) => {
 //  FINAL
 //
 
-app.listen(3000, () => {
-    console.log('Serving on port 3000')
+
+app.listen(3001, () => {
+    console.log('Serving on port 3001')
 });
+

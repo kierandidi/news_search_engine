@@ -29,19 +29,19 @@ function NavbarExpand({ getAllArticles, topics, onSearch, changeTopic }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to='/'><div onClick={getAllArticles}>Home</div></Nav.Link>
-            <Nav.Link as={Link} to='/'>About</Nav.Link>
+            <Nav.Link style={{display: 'none' }} as={Link} to='/'>About</Nav.Link>
             <NavDropdown title="Topics" id="collasible-nav-dropdown">
               {topics.map(topic => {
                 return (
-                  <NavDropdown.Item key={topic.topicId}>
-                    <div onClick={() => (changeTopic(topic.topicId))}>{topic.title}</div>
+                  <NavDropdown.Item key={topic._id}>
+                    <div onClick={() => (changeTopic(topic._id))}>{topic.description}</div>
                   </NavDropdown.Item>
                 )
               })}
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#contact">Contact</Nav.Link>
+            <Nav.Link style={{display: 'none' }} href="#contact">Contact</Nav.Link>
             <Form className="d-flex">
               <Form.Control
                 type="search"
@@ -49,9 +49,9 @@ function NavbarExpand({ getAllArticles, topics, onSearch, changeTopic }) {
                 className="me-2"
                 aria-label="Search"
                 value={text}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={ (e) => onChange(e.target.value)}
               />
-              <Button variant="outline-success" onClick={onSearch(text)}>Search</Button>
+              <Button variant="outline-success" onClick={ () => onChange(text)}>Search</Button>
             </Form>
           </Nav>
         </Navbar.Collapse>

@@ -246,9 +246,12 @@ apiRouter.route('/search')
     console.log(query);
 
     Article.find({
-        $text: {
-            $search : query
-        }
+
+        "$or":[                                             // Victor:
+            {cardTitle:{$regex: query, $options: "i"}},     // made the search function case insensitive 
+            {headline:{$regex: query, $options: "i"}}       // and search for headline and topic title
+            ]
+
     })
     .then(data=> res.json(data))
     
