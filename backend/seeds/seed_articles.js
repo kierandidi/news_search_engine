@@ -1,5 +1,6 @@
 module.exports = [
     {
+
         cardTitle: 'Supreme Court and abortion',
         topics: ['abortion'],
         publisher: 'CNBC',
@@ -195,5 +196,6 @@ module.exports = [
         headline: 'Climate change is hitting the planet faster than scientists originally thought',
         img: 'https://media.nature.com/lw800/magazine-assets/d41586-022-00585-7/d41586-022-00585-7_20176136.jpg',
         url: 'https://www.nature.com/articles/d41586-022-00585-7'
+
     }
 ]

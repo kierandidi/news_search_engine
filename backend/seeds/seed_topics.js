@@ -1,5 +1,6 @@
 module.exports = [
     {
+
         name: "abortion",
         description: "Abortion",
         numOfArticles: 3,
@@ -44,5 +45,6 @@ module.exports = [
             "63173445fe46fc5e3dc2ba14",
             "63173445fe46fc5e3dc2ba15"
         ]
+
     }
 ]
