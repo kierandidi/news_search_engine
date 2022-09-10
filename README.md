@@ -85,7 +85,7 @@ searches all article headlines for 'word'
 
 ## Deployment
 
-This project was deployed using Heroku.
+This project was deployed using Heroku. See [this article](https://shivanigangadharan.medium.com/accessing-mongodb-uri-from-heroku-for-mern-app-b9ce45e841a5) about strategies to hide the database URI in a Heroku deployment and [this article](https://vivek-kaushal.medium.com/deploying-a-mern-web-app-to-heroku-b12c74c8b3c4) to learn about the deployment process of a MERN application using Heroku.
 
 
 ## Screenshots
