@@ -118,21 +118,24 @@ This project was deployed using Heroku.
 
 ## FAQ
 
-#### Question 1
+#### Why another news website?
 
-Answer 1
+Our project was focused around providing different perspectives on topics by showing articles from different geographic regions for the same topic. The idea is that users do not stay stuck in their news bubble, but also get exposure to opinions different than their own and therefore start questioning their assumptions.
 
-#### Question 2
+### Can I contribute?
 
-Answer 2
+Yes! If you have a topic you think is wort to be covered from multiple perspectie, [open an issue](https://github.com/kierandidi/news_search_engine/issues) and include the topic name as well as links to different articles dealing with the topic.
 
 
 ## Authors
 
-- [@octokatherine](https://www.github.com/octokatherine)
+- [Kieran Didi (Head of Operations)](https://github.com/kierandidi)
+- [Victor Lorenzo Martinez (Head of Communications)](https://github.com/Victorloma)
+- [Stephan Pfeiffer (Frontend)](https://github.com/Steph-The-Dev)
+- [Vincent Dalla Vecchia (Backend)](https://github.com/Bleikopf)
 
 
 ## Acknowledgements
 
-Thanks a lot to the TechLabs team Düsseldorf!
+Thanks a lot to the TechLabs team Düsseldorf, especially to our mentor [Diego](https://github.com/barbunzel)!
 
