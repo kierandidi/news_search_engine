@@ -1,10 +1,8 @@
-
-![Logo](https://github.com/kierandidi/news_search_engine/blob/main/root/react-app/src/components/img/athenas-delta-logo/athenas-logo-only.png)
-
+<img src="https://github.com/kierandidi/news_search_engine/blob/main/root/react-app/src/components/img/athenas-delta-logo/athenas-logo-only.png" alt="logo" width="150"/>
 
 # Athena Delta: Unbiased News Website
 
-This project implements a news website using the MERN stack
+This project implements a news website using the MERN stack and is available [here](https://athena-delta.herokuapp.com/).
 
 
 ## Installation
@@ -28,29 +26,61 @@ function App() {
 
 ## API Reference
 
-#### Get all items
+### /api/topics
+- get:
+get all the topics
 
-```http
-  GET /api/items
-```
+- post:
+post a topic;
+works but is incomplete
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+### /api/topics/:topicID
+- get:
+get a topic with the specific ID from the database
 
-#### Get item
+- patch:
+edit the specific topic according to input
 
-```http
-  GET /api/items/${id}
-```
+- delete:
+delete the specific topic
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+### /api/topics/:topicID/articles
+- get:
+get all the articles under that specific topic
 
-#### add(num1, num2)
+- post:
+post a new article;
+works but incomplete
 
-Takes two numbers and returns the sum.
+### /api/articles
+- get:
+get all the articles
+
+- post:
+post a new article;
+works but incomplete
+
+### /api/articles/:articleID
+- get:
+get an article with the specific ID from the database
+
+- patch:
+edit the specific article according to input
+
+- delete:
+delete the specific article
+
+### /api/articles/:articleID/topics
+- get:
+get all the topics under that specific article
+
+- post:
+post a new topics;
+works but incomplete
+
+### /api/search?query=word
+- get:
+searches all article headlines for 'word'
 
 
 ## Deployment
@@ -60,7 +90,7 @@ This project was deployed using Heroku.
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/kierandidi/news_search_engine/blob/main/root/react-app/src/components/img/website_screenshot.png)
 
 
 ## Tech Stack
@@ -104,7 +134,5 @@ Answer 2
 
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+Thanks a lot to the TechLabs team Düsseldorf!
 
