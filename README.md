@@ -7,21 +7,11 @@ This project implements a news website using the MERN stack and is available [he
 
 ## Installation
 
-Clone this repository:
+1. Clone this repository: `git clone https://github.com/kierandidi/news_search_engine.git`
 
-```bash
-  git clone https://github.com/kierandidi/news_search_engine.git
-```
-    
-## Usage/Examples
+2. Run `npm install`
 
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
+3. Run `npm start`
 
 
 ## API Reference
