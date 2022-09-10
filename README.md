@@ -110,10 +110,11 @@ This project was deployed using Heroku. See [this article](https://shivanigangad
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
-| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
-| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+| Logo Font | ![#e0dcf6](https://via.placeholder.com/10/e0dcf6?text=+) #e0dcf6 |
+| Logo Sign | ![#eef7fd](https://via.placeholder.com/10/eef7fd?text=+) #eef7fd |
+| Navbar | ![#212529](https://via.placeholder.com/10/212529?text=+) #212529 |
+| Green | ![#198754](https://via.placeholder.com/10/198754?text=+) #198754 |
+| Blue | ![#0d6efd](https://via.placeholder.com/10/0d6efd?text=+) #0d6efd |
 
 
 ## FAQ
