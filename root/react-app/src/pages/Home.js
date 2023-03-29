@@ -1,10 +1,7 @@
-import CardList from '../components/CardList';
-// import {articles} from '../Articles'
+import CardList from '../components/CardList'
 
-const Home = ({articles}) => {
-  return (
-    <CardList articles = {articles}/>
-  );
+const Home = ({ articles }) => {
+  return <CardList articles={articles} />
 }
 
-export default Home;
+export default Home
